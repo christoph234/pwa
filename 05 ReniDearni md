@@ -1,0 +1,22 @@
+Berdasarkan catatan pada papan tulis tersebut, berikut adalah penjelasan mengenai manajemen proses pada sistem operasi mobile (Android) menggunakan pola PREP (Point, Reason, Example, Point):
+---
+Manajemen Proses: Foreground, Background, dan Cache
+1. Point (Titik Utama)
+Sistem operasi mobile mengelola aplikasi berdasarkan hierarki prioritas untuk menjaga performa perangkat dan efisiensi baterai. Komponen utamanya terbagi menjadi tiga status: Foreground, Background, dan Cache.
+2. Reason (Alasan)
+Karena keterbatasan sumber daya (seperti RAM dan daya baterai) pada perangkat mobile, sistem tidak bisa menjalankan semua aplikasi dengan intensitas yang sama. Oleh karena itu, sistem menggunakan Killer Priorities untuk memutus atau membatasi proses yang tidak sedang berinteraksi langsung dengan pengguna guna memberi ruang bagi proses yang lebih krusial.
+3. Example (Contoh & Penjelasan Teknis)
+Berdasarkan diagram di papan tulis, berikut adalah rincian masing-masing status:
+* Foreground (FG): Aplikasi yang sedang aktif di depan layar.
+ Contoh: Aktivitas yang sedang dilakukan pengguna, seperti mengetik pesan atau menjalankan task utama yang terlihat langsung.
+* Background (BG): Aplikasi yang berjalan di balik layar tetapi masih melakukan tugas aktif.
+ Contoh: File transfer, sinkronisasi data, atau pemutaran musik yang tetap berjalan meskipun layar beralih ke aplikasi lain. Di papan tulis tertulis keterkaitan dengan Files dan Metadata.
+* Cache:* Status *Inactive*. Proses ini disimpan di memori agar saat dibuka kembali, aplikasi bisa berjalan lebih cepat (resumable), namun proses ini adalah yang pertama akan dihentikan jika sistem membutuhkan memori tambahan.
+* Komponen Pendukung:
+    * Intent: Mekanisme komunikasi antar komponen (seperti membuka PDF melalui browser).
+    * Provider: Mengelola akses ke kumpulan data terpusat (seperti kontak atau galeri).
+    * FBE (File-Based Encryption): Mengamankan data pada level file.
+    * Memory Management (WM/WM): Terlihat grafik penggunaan memori (seperti 10% atau 9%) yang menentukan kapan sistem harus melakukan pembersihan (Request Query).
+
+4. Point (Kesimpulan)
+Secara keseluruhan, sistem menggunakan pola **PREP** dalam operasionalnya (Point, Reason, Example, Point) untuk memastikan bahwa aplikasi yang paling penting bagi pengguna (Foreground) mendapatkan prioritas tertinggi, sementara aplikasi pendukung (Background) dan cadangan (Cache) dikelola secara ketat agar sistem tetap stabil dan responsif.
